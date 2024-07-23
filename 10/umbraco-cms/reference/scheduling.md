@@ -121,22 +121,6 @@ namespace Umbraco.Docs.Samples.Web.RecurringHostedService
 }
 ```
 
-Now we can invoke it in the `ConfigureServices` method in `Startup.cs`:
-
-```
-public void ConfigureServices(IServiceCollection services)
-{
-#pragma warning disable IDE0022 // Use expression body for methods
-    services.AddUmbraco(_env, _config)
-        .AddBackOffice()
-        .AddWebsite()
-        .AddComposers()
-        .AddCustomHostedServices() // Register CleanUpYourRoom
-        .Build();
-#pragma warning restore IDE0022 // Use expression body for methods
-}
-```
-
 ### Registering with a composer
 
 All we need to do here is to create the composer where we register the hosted service with `AddHostedService`, which will be run automatically:
